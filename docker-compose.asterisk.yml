@@ -1,0 +1,24 @@
+version: '3'
+services:
+  asterisk:
+    image: ghcr.io/asterisk/asterisk:22
+    container_name: asterisk-test
+    ports:
+      - "5060:5060/udp"
+      - "5061:5061/udp"
+      - "8088:8088"
+      - "5038:5038"
+    volumes:
+      - ./asterisk-config/pjsip.conf:/etc/asterisk/pjsip.conf
+      - ./asterisk-config/extensions.conf:/etc/asterisk/extensions.conf
+      - ./asterisk-config/asterisk.conf:/etc/asterisk/asterisk.conf
+      - ./asterisk-config/modules.conf:/etc/asterisk/modules.conf
+      - ./asterisk-config/http.conf:/etc/asterisk/http.conf
+      - ./asterisk-config/manager.conf:/etc/asterisk/manager.conf
+    cap_add:
+      - NET_ADMIN
+      - SYS_NICE
+      - SETUID
+      - SETGID
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

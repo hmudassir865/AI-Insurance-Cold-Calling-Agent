@@ -1,0 +1,78 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+dist/
+build/
+*.whl
+
+# Environment
+.env
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+data/recordings/*
+data/leads/*
+!data/recordings/.gitkeep
+!data/leads/.gitkeep
+
+# Logs
+*.log
+
+# Docker
+.docker/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Database
+*.db
+*.sqlite3
+
+# Audio
+*.mp3
+*.wav
+*.ogg
+
+# Generated documents
+*.docx
+SRS_*.docx
+
+# Project videos (large media files)
+Project Video/
+
+# Jupyter notebooks (checkpoints)
+.ipynb_checkpoints/
+
+# Python virtual environment (root level)
+env/
+.venv/
+
+# Coverage reports
+htmlcov/
+.coverage
+coverage.xml
+
+# Pytest
+.pytest_cache/
+
+# Node modules (root level, frontend handles its own)
+node_modules/
+
+# Temp files
+*.tmp
+temp/
