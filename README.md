@@ -391,6 +391,16 @@ The `render.yaml` file defines the full deployment configuration:
 
 ---
 
+## Author
+
+👨‍💻 **Mudassir Hussain**
+- Email: hmudassir865@gmail.com
+- Github: [GitHub](https://github.com/hmudassir865)
+- Kaggle: [Kaggle](https://www.kaggle.com/hmudassir865)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/mudassir-hussain-877347207/)
+
+---
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
