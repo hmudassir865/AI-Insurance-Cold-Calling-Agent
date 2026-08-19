@@ -21,9 +21,38 @@
 
 ## About
 
-This system replaces manual telemarketing with an intelligent AI pipeline that automatically calls leads, engages them in natural conversations, qualifies their interest, and logs results — all in real-time. It supports **multi-LLM fallback** (Groq, Gemini, Ollama, OpenAI, Anthropic), **local STT/TTS** via Whisper and gTTS, and **PSTN telephony** through SignalWire.
+This system automates the initial insurance lead conversation using an AI voice agent. It can call leads, engage them in natural conversations, understand their responses, qualify their interest, and log call results in real time.
 
-Built for insurance agencies and sales teams looking to automate outbound lead qualification at scale.
+The system combines LLMs, RAG, speech recognition, text to speech, and PSTN telephony into an end to end AI pipeline. It supports multi LLM fallback across Groq, Gemini, Ollama, OpenAI, and Anthropic, with Whisper and gTTS for speech processing and SignalWire for phone calls.
+
+The goal is to automate the initial lead qualification process while keeping the system flexible, observable, and scalable for insurance workflows.
+
+---
+
+## How It Works
+
+The system follows an end to end voice AI pipeline:
+
+1. **Lead Calling**
+   The system initiates outbound calls to insurance leads through SignalWire.
+
+2. **Speech Recognition**
+   The lead's speech is captured and converted into text using OpenAI Whisper.
+
+3. **Context & Retrieval**
+   Relevant insurance information is retrieved from the knowledge base using RAG and pgvector.
+
+4. **LLM Processing**
+   The conversation is processed by the configured LLM. The system supports multiple LLM providers with fallback handling.
+
+5. **Voice Response**
+   The generated response is converted back into speech using ElevenLabs or gTTS.
+
+6. **Conversation Tracking**
+   Call transcripts, lead information, sentiment, and call outcomes are stored for later analysis.
+
+7. **Real Time Monitoring**
+   The dashboard provides real time visibility into calls, conversations, and lead activity.
 
 ---
 
