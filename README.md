@@ -76,27 +76,52 @@ The system follows an end to end voice AI pipeline:
 
 ---
 
-## Architecture
+## System Architecture
 
-```
-                          INTERNET
-                             |
-                        [NGINX :80/443]
-                          /          \
-                         /            \
-              [React Frontend :5173]   [FastAPI Backend :8000]
-              (Dashboard, Leads,       (REST API, WebSocket,
-               Campaigns, Calls)        JWT Auth, AI pipeline)
-                        |                      |
-                        |                      |
-                   [Redis :6379]     [PostgreSQL 16 :5432 + pgvector]
-                   (Cache, Celery)   (Users, Leads, Campaigns,
-                                       Call Logs, RAG Documents)
+The system follows an end to end voice AI architecture that connects telephony, speech processing, retrieval, LLM reasoning, and data storage.
 
-External Integrations (HTTPS):
-  SignalWire (PSTN) ──── Groq API (LLM) ──── Gemini API (LLM)
-  ElevenLabs (TTS) ───── gTTS (TTS) ───────── Whisper (STT, local)
-```
+```text
+Insurance Lead
+      │
+      ▼
+SignalWire / PSTN
+      │
+      ▼
+Speech to Text
+   (Whisper)
+      │
+      ▼
+Conversation Processing
+      │
+      ├──► RAG / pgvector
+      │         │
+      │         ▼
+      │    Relevant Context
+      │
+      ▼
+LLM Layer
+(Groq / Gemini / Ollama / OpenAI / Anthropic)
+      │
+      ▼
+Text to Speech
+(ElevenLabs / gTTS)
+      │
+      ▼
+Voice Response
+      │
+      ▼
+Insurance Lead
+
+      │
+      ▼
+PostgreSQL
+(Calls, Leads, Transcripts,
+Sentiment & Outcomes)
+
+      │
+      ▼
+React Dashboard
+(Real Time Monitoring)
 
 ### Conversation Flow
 
