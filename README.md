@@ -125,6 +125,8 @@ React Dashboard
 
 ### Conversation Flow
 
+---
+
 ```
 Inbound Audio (PSTN)
     → Whisper STT (local transcription)
