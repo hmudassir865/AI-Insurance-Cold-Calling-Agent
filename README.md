@@ -155,7 +155,7 @@ Inbound Audio (PSTN)
 | **Auth** | JWT (python-jose), bcrypt (passlib) |
 | **Infrastructure** | Docker Compose, Nginx, Render, Redis |
 
----
+```
 
 ## Project Structure
 
