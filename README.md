@@ -128,6 +128,34 @@ React Dashboard
 
 ---
 
+```
+
+## The Hardest Engineering Challenge
+
+One of the most challenging parts of this project was getting the voice and telephony pipeline to work reliably.
+
+At different stages of development, the agent was not producing the expected voice response and outbound calls were not working correctly. The challenge was not limited to a single component — the issue involved the interaction between the telephony, speech processing, and voice generation layers.
+
+Instead of treating it as a single error, I broke the pipeline into smaller components and tested each stage independently:
+
+1. Verified that the outbound call was being initiated correctly.
+2. Checked whether the incoming speech was being captured and converted to text.
+3. Verified that the LLM was generating the expected response.
+4. Tested whether the generated response was reaching the text to speech layer.
+5. Checked whether the generated audio was being returned correctly through the telephony flow.
+6. Tested the complete pipeline again after isolating and fixing the failing component.
+
+This experience taught me an important lesson about building AI applications:
+
+> **When multiple systems are connected together, debugging the complete pipeline requires understanding how each component interacts with the others.**
+
+It also reinforced my approach to engineering:
+
+**Learn → Build → Test → Break → Debug → Understand → Share**
+
+```
+
+
 Inbound Audio (PSTN)
     → Whisper STT (local transcription)
     → MultiLLMService.generate_response()
@@ -223,33 +251,6 @@ AI_Insurance_Cold_Calling_Agent/
 ```
 
 ---
-
-```
-
-## The Hardest Engineering Challenge
-
-One of the most challenging parts of this project was getting the voice and telephony pipeline to work reliably.
-
-At different stages of development, the agent was not producing the expected voice response and outbound calls were not working correctly. The challenge was not limited to a single component — the issue involved the interaction between the telephony, speech processing, and voice generation layers.
-
-Instead of treating it as a single error, I broke the pipeline into smaller components and tested each stage independently:
-
-1. Verified that the outbound call was being initiated correctly.
-2. Checked whether the incoming speech was being captured and converted to text.
-3. Verified that the LLM was generating the expected response.
-4. Tested whether the generated response was reaching the text to speech layer.
-5. Checked whether the generated audio was being returned correctly through the telephony flow.
-6. Tested the complete pipeline again after isolating and fixing the failing component.
-
-This experience taught me an important lesson about building AI applications:
-
-> **When multiple systems are connected together, debugging the complete pipeline requires understanding how each component interacts with the others.**
-
-It also reinforced my approach to engineering:
-
-**Learn → Build → Test → Break → Debug → Understand → Share**
-
-```
 
 ## Prerequisites
 
