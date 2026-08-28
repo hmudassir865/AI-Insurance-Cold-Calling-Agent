@@ -157,8 +157,6 @@ Inbound Audio (PSTN)
 
 ```
 
----
-
 ```
 
 ## The Hardest Engineering Challenge
@@ -185,6 +183,7 @@ It also reinforced my approach to engineering:
 **Learn → Build → Test → Break → Debug → Understand → Share**
 
 ```
+
 ---
 
 ## Project Structure
